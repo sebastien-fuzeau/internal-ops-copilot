@@ -37,5 +37,7 @@ jobs:
         with:
           distribution: temurin
           java-version: "17"
+      - name: Make mvnw executable
+        run: chmod +x mvnw
       - name: Test
         run: ./mvnw test
