@@ -30,6 +30,7 @@ class _KVFormatter(logging.Formatter):
 class _JSONFormatter(logging.Formatter):
     def format(self, record: logging.LogRecord) -> str:
         payload = {
+            "ts": int(record.created * 1000),
             "level": record.levelname,
             "logger": record.name,
             "message": record.getMessage(),
