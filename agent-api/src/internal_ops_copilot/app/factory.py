@@ -31,8 +31,8 @@ def create_app() -> FastAPI:
     app.add_middleware(TracingMiddleware)
 
     # Routes
-    app.include_router(health_router)     # /healthz /readyz restent root
-    app.include_router(v1_meta_router)    # /v1/ping
+    app.include_router(health_router)  # /healthz /readyz restent root
+    app.include_router(v1_meta_router)  # /v1/ping
 
     log.info("app_started", extra={"status_code": 0})
     return app

@@ -1,9 +1,8 @@
 from __future__ import annotations
 
 import uuid
-from collections.abc import Callable
 
-from starlette.middleware.base import BaseHTTPMiddleware
+from starlette.middleware.base import BaseHTTPMiddleware, RequestResponseEndpoint
 from starlette.requests import Request
 from starlette.responses import Response
 
@@ -16,7 +15,7 @@ class CorrelationIdMiddleware(BaseHTTPMiddleware):
     - Ajoute X-Correlation-Id à la réponse
     """
 
-    async def dispatch(self, request: Request, call_next: Callable) -> Response:
+    async def dispatch(self, request: Request, call_next: RequestResponseEndpoint) -> Response:
         cid = request.headers.get(CORRELATION_HEADER) or str(uuid.uuid4())
         request.state.correlation_id = cid
 

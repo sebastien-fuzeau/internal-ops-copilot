@@ -51,7 +51,9 @@ class TracingMiddleware(BaseHTTPMiddleware):
                     "method": request.method,
                     "path": request.url.path,
                     "duration_ms": duration_ms,
-                    "status_code": getattr(locals().get("response", None), "status_code", status_code),
+                    "status_code": getattr(
+                        locals().get("response", None), "status_code", status_code
+                    ),
                 },
             )
 
