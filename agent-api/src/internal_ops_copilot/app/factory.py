@@ -1,12 +1,14 @@
 from __future__ import annotations
 
 import logging
+
 from fastapi import FastAPI
 
 from internal_ops_copilot.app.config import get_settings
 from internal_ops_copilot.app.logging_config import LoggingConfig, configure_logging
 from internal_ops_copilot.web.middleware.correlation import CorrelationIdMiddleware
 from internal_ops_copilot.web.routes.health import router as health_router
+
 
 log = logging.getLogger("main")
 
