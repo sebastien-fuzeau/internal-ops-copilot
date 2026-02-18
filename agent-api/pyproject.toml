@@ -1,0 +1,34 @@
+[project]
+name = "internal-ops-copilot"
+version = "0.0.1"
+description = "Internal Ops Copilot - FastAPI service (prod-ready) for Java integration demos"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+  "fastapi>=0.110",
+  "uvicorn[standard]>=0.27",
+  "pydantic>=2.6",
+  "pydantic-settings>=2.2",
+  "httpx>=0.27",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.0",
+  "pytest-asyncio>=0.23",
+  "ruff>=0.5",
+  "mypy>=1.10",
+  "types-requests",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+asyncio_mode = "auto"
+
+[tool.ruff]
+# ruff.toml est la source principale; section minimale ici
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
