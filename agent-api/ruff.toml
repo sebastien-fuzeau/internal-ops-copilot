@@ -11,3 +11,7 @@ known-first-party = ["internal_ops_copilot"]
 [format]
 quote-style = "double"
 indent-style = "space"
+
+[lint.per-file-ignores]
+"src/internal_ops_copilot/web/deps/auth.py" = ["B008"]
+"src/internal_ops_copilot/web/routes/v1/meta.py" = ["B008"]
